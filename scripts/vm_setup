@@ -90,15 +90,15 @@ main() {
 				fi
 				;;
 		esac
-		if test "${BASE_VERSION}" == "c10f1"; then
-			${STEP_DIR}/setup_c10f1_repos
+		if test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2"; then
+			${STEP_DIR}/setup_c10f_repos
 		fi
 		${STEP_DIR}/setup_apt
 		if test "${CLOUDINIT}" == "1"; then
 			if test "${BASE_VERSION}" == "8sp"; then
 				${STEP_DIR}/setup_cloudinit
 				${STEP_DIR}/setup_cloudinit_yandex
-			elif test "${BASE_VERSION}" == "c10f1"; then
+			elif test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2"; then
 				${STEP_DIR}/setup_cloudinit_etcnet
 			else
 				${STEP_DIR}/setup_cloudinit_10
@@ -120,7 +120,7 @@ main() {
 		${STEP_DIR}/setup_reset_root_password
 		${STEP_DIR}/setup_enable_sudo_controls
 		${STEP_DIR}/setup_disable_sshd_password_auth
-		if test "${BASE_VERSION}" == "8sp" || test "${BASE_VERSION}" == "c10f1"; then
+		if test "${BASE_VERSION}" == "8sp" || test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2"; then
 			${STEP_DIR}/setup_integrity_fix
 		fi
 		${STEP_DIR}/setup_clean
@@ -128,8 +128,8 @@ main() {
 
 	if test "${VM_TYPE}" == "vsphere"; then
 		${STEP_DIR}/setup_remove_cdroms_repos
-		if test "${BASE_VERSION}" == "c10f1-vmware"; then
-			${STEP_DIR}/setup_c10f1_repos
+		if test "${BASE_VERSION}" == "c10f1-vmware" || test "${BASE_VERSION}" == "c10f2-vmware"; then
+			${STEP_DIR}/setup_c10f_repos
 		fi
 		case "${BASE_VERSION}" in
 			'10.1-vmware')
@@ -164,7 +164,7 @@ main() {
 		${STEP_DIR}/setup_sudo
 		${STEP_DIR}/setup_enable_sudo_controls
 		${STEP_DIR}/setup_disable_sshd_password_auth
-		if test "${BASE_VERSION}" == "c10f1-vmware"; then
+		if test "${BASE_VERSION}" == "c10f1-vmware" || test "${BASE_VERSION}" == "c10f2-vmware"; then
 			${STEP_DIR}/setup_integrity_fix
 		fi
 		${STEP_DIR}/setup_clean
