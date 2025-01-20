@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Postgresql Server
+Name[ru_RU]=Сервер Postgresql
+Comment=Postgresql Server
+Comment[ru_RU]=Сервер Postgresql
+X-Alterator-PackageList=sp/postgresql-server
+X-Alterator-Required=no
+Categories=Server;Networking

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Podman
+Name[ru_RU]=Управление контейнерами Podman
+Comment=Podman
+Comment[ru_RU]=Управление контейнерами Podman
+X-Alterator-PackageList=sp/podman
+X-Alterator-Required=no
+X-Alterator-Parent=sp/800-container

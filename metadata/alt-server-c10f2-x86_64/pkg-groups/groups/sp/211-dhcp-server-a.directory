@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=DHCP server management
+Name[ru_RU]=Управление сервером DHCP
+Comment=DHCP server management
+Comment[ru_RU]=Управление сервером DHCP
+X-Alterator-PackageList=sp/dhcp-server-a
+X-Alterator-Depends=sp/210-dhcp-server sp/100-alterator-server
+X-Alterator-Parent=sp/200-server-apps
+X-Alterator-Required=no
+Categories=Server;Networking
