@@ -24,7 +24,7 @@
 ; group in SELinux-enabled distros because SELinux must be disabled to
 ; perform 'apt-get dist-upgrade' which you will eventually try to
 ; perform when VM is up.
-("/pkg-install" action "write" lists "" auto #t)
+("/pkg-install" action "write" lists "control-sshd" auto #t)
 ("/preinstall" action "write")
 
 ; It should be noted that 'virtio' block device driver will render
@@ -56,4 +56,4 @@
 
 ("/root/change_password" language ("ru_RU") passwd_2 "123" passwd_1 "123")
 
-("/postinstall/firsttime" run "control sshd-password-auth enabled; control sshd-permit-root-login enabled; systemctl restart sshd")
+("/postinstall/firsttime" run "systemctl enable --now sshd; control sshd-password-auth enabled; control sshd-permit-root-login enabled; systemctl restart sshd")

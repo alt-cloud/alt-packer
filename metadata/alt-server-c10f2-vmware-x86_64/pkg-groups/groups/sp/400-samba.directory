@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Samba Server
+Name[ru_RU]=Сервер Samba
+Comment=Samba Server
+Comment[ru_RU]=Сервер Samba
+X-Alterator-PackageList=sp/samba
+X-Alterator-Required=no
+Categories=Server;Networking
