@@ -1,0 +1,4 @@
+kubernetes-kubeadm
+kubernetes-node
+kubernetes-crio
+cri-tools

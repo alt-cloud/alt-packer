@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Proxmox backup server
+Name[ru_RU]=Сервер резервного копирования от проекта Proxmox
+Comment=Proxmox backup server
+Comment[ru_RU]=Сервер резервного копирования от проекта Proxmox
+X-Alterator-PackageList=sp/proxmox-backup-server
+X-Alterator-Required=no
+Categories=Server;Networking
