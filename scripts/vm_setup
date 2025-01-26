@@ -90,6 +90,9 @@ main() {
 					${STEP_DIR}/setup_minimalize_server_10.2
 				fi
 				;;
+			'c10f1' | 'c10f2')
+				${STEP_DIR}/setup_minimalize_server_c10f
+				;;
 		esac
 		if test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2"; then
 			${STEP_DIR}/setup_c10f_repos
