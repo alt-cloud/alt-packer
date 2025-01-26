@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -euo pipefail
+
+echo "=> Switching from etcnet to systemd-networkd..."
+
+apt-get update
+apt-get install -y systemd-networkd
+apt-get remove -y -D etcnet openresolv
+
+systemctl enable systemd-networkd systemd-resolved
+ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+
+echo "=> Switching from etcnet to systemd-networkd completed"
