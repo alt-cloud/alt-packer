@@ -99,8 +99,6 @@ main() {
 			if test "${BASE_VERSION}" == "8sp"; then
 				${STEP_DIR}/setup_cloudinit
 				${STEP_DIR}/setup_cloudinit_yandex
-			elif test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2"; then
-				${STEP_DIR}/setup_cloudinit_etcnet
 			else
 				${STEP_DIR}/setup_cloudinit_10
 			fi
@@ -123,6 +121,11 @@ main() {
 		${STEP_DIR}/setup_disable_sshd_password_auth
 		if test "${BASE_VERSION}" == "8sp" || test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2"; then
 			${STEP_DIR}/setup_integrity_fix
+		fi
+		if [ "${BASE_VERSION}" == "c10f1" ] || [ "${BASE_VERSION}" == "c10f2" ]; then
+			# This step should be done after all
+			# the operations that require hostname resolution.
+			${STEP_DIR}/setup_switch_etcnet_to_systemd-networkd
 		fi
 		${STEP_DIR}/setup_clean
 	fi
