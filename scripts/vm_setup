@@ -82,7 +82,7 @@ main() {
 				${STEP_DIR}/setup_remove_etcnet
 				${STEP_DIR}/setup_minimalize_server_10.1
 				;;
-			'10.2')
+			'10.2' | '10.4')
 				${STEP_DIR}/setup_remove_etcnet
 				if test "${TARGET}" == "alt-workstation"; then
 					${STEP_DIR}/setup_minimalize_workstation_10.2
