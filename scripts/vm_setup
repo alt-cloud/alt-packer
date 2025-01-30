@@ -122,13 +122,13 @@ main() {
 		${STEP_DIR}/setup_reset_root_password
 		${STEP_DIR}/setup_enable_sudo_controls
 		${STEP_DIR}/setup_disable_sshd_password_auth
+		if [ "${BASE_VERSION}" == "c10f1" ] || [ "${BASE_VERSION}" == "c10f2" ]; then
+                        # This step should be done after all
+                        # the operations that require hostname resolution.
+                        ${STEP_DIR}/setup_switch_etcnet_to_systemd-networkd
+                fi
 		if test "${BASE_VERSION}" == "8sp" || test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2"; then
 			${STEP_DIR}/setup_integrity_fix
-		fi
-		if [ "${BASE_VERSION}" == "c10f1" ] || [ "${BASE_VERSION}" == "c10f2" ]; then
-			# This step should be done after all
-			# the operations that require hostname resolution.
-			${STEP_DIR}/setup_switch_etcnet_to_systemd-networkd
 		fi
 		${STEP_DIR}/setup_clean
 	fi
@@ -145,6 +145,9 @@ main() {
 			'10.2-vmware')
 				${STEP_DIR}/setup_minimalize_server_10.2
 				;;
+			'c10f1-vmware' | 'c10f2-vmware')
+                                ${STEP_DIR}/setup_minimalize_server_c10f
+                                ;;
 		esac
 		${STEP_DIR}/setup_apt
 		${STEP_DIR}/setup_network_manager_ifcfg
