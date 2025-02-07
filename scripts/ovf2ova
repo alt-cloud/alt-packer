@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 
 import argparse
+import hashlib
+import re
+import stat
 import tarfile
-import xml.etree.ElementTree as ET
+import tempfile
 from pathlib import Path
+
+from lxml import etree as ET
 
 
 def parse_args() -> argparse.Namespace:
@@ -23,16 +28,13 @@ def get_disk(ovf_path: Path):
         "": "http://schemas.dmtf.org/ovf/envelope/1",
     }
 
-    for ns, uri in namespaces.items():
-        ET.register_namespace(ns, uri)
-
     tree = ET.parse(ovf_path)
     root = tree.getroot()
     file_entry = root.find(f"References/File", namespaces)
     if file_entry is None:
         raise RuntimeError(f"Failed to find vmdk file reference in {ovf_path}")
 
-    disk_file_name = file_entry.attrib.get("href")
+    disk_file_name = file_entry.attrib.get(f"{{{namespaces["ovf"]}}}href")
     if disk_file_name is None:
         raise RuntimeError(f"Failed to find vmdk file href in {ovf_path}")
 
@@ -47,16 +49,64 @@ def main():
         tarinfo.gid = 64
         tarinfo.uname = "someone"
         tarinfo.gname = "someone"
+        tarinfo.mode = stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IROTH
         return tarinfo
 
     ovf_path = Path(args.source_ovf_filepath)
     disk_path = get_disk(ovf_path)
     mf_path = ovf_path.with_suffix(".mf")
 
-    with tarfile.open(ovf_path.with_suffix(".ova"), mode="w", debug=3) as f:
-        f.add(ovf_path, arcname=ovf_path.name, filter=reset_owner)
-        f.add(mf_path, arcname=mf_path.name, filter=reset_owner)
-        f.add(disk_path, arcname=disk_path.name, filter=reset_owner)
+    tree = ET.parse(ovf_path)
+    root = tree.getroot()
+
+    namespaces = {
+        "cim": "http://schemas.dmtf.org/wbem/wscim/1/common",
+        "ovf": "http://schemas.dmtf.org/ovf/envelope/1",
+        "rasd": "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData",
+        "vmw": "http://www.vmware.com/schema/ovf",
+        "vssd": "http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData",
+        "xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "": "http://schemas.dmtf.org/ovf/envelope/1",
+    }
+
+    # Rename disk file like ovftool does
+    file_entry = root.find(f"References/File", namespaces)
+    if file_entry is None:
+        raise RuntimeError(f"Failed to find vmdk file reference in {ovf_path}")
+
+    new_disk_name = f"{ovf_path.stem}-disk1.vmdk"
+    file_entry.set(f"{{{namespaces["ovf"]}}}href", new_disk_name)
+
+    ovf_text = ET.tostring(
+        tree,
+        xml_declaration=False,
+        doctype='<?xml version="1.0" encoding="UTF-8"?>',
+    ).decode()
+    ovf_text = re.sub("(<!--.*-->)", r"\1\n", ovf_text)
+
+    tmp_ovf = tempfile.NamedTemporaryFile()
+    tmp_ovf.write(ovf_text.encode("utf-8"))
+    tmp_ovf.seek(0, 0)
+
+    # vmx-14 uses SHA256
+    hash_ovf = hashlib.sha256(tmp_ovf.read())
+    hash_disk = hashlib.sha256(disk_path.read_bytes())
+
+    tmp_mf = tempfile.NamedTemporaryFile(mode="w", encoding="utf-8")
+    tmp_mf.write(f"SHA256({ovf_path.name})= {hash_ovf.hexdigest()}\n")
+    tmp_mf.write(f"SHA256({new_disk_name})= {hash_disk.hexdigest()}\n")
+
+    tmp_ovf.seek(0, 0)
+    tmp_mf.seek(0, 0)
+    with tarfile.open(
+        ovf_path.with_suffix(".ova"), mode="w", format=tarfile.USTAR_FORMAT, debug=3
+    ) as f:
+        f.add(tmp_ovf.name, arcname=ovf_path.name, filter=reset_owner)
+        f.add(tmp_mf.name, arcname=mf_path.name, filter=reset_owner)
+        f.add(disk_path, arcname=new_disk_name, filter=reset_owner)
+
+    tmp_ovf.close()
+    tmp_mf.close()
 
 
 if __name__ == "__main__":
