@@ -2,8 +2,9 @@
 
 import argparse
 import hashlib
-import xml.etree.ElementTree as ET
 from pathlib import Path
+
+from lxml import etree as ET
 
 
 def parse_args() -> argparse.Namespace:
@@ -12,6 +13,7 @@ def parse_args() -> argparse.Namespace:
         description="""\
 Prepare VMware OVF package for distribution.
 - Remove network device.
+- Add a serial port
 - Make two version of OVF: with Legacy BIOS and with EFI""",
     )
     parser.add_argument("image_name")
@@ -30,9 +32,6 @@ def main():
         "xsi": "http://www.w3.org/2001/XMLSchema-instance",
         "": "http://schemas.dmtf.org/ovf/envelope/1",
     }
-
-    for ns, uri in namespaces.items():
-        ET.register_namespace(ns, uri)
 
     tree = ET.parse(f"images/{args.image_name}/{args.image_name}.ovf")
     root = tree.getroot()
@@ -56,10 +55,57 @@ def main():
             print("Removing VirtualHardware network adapter for default network...")
             virtual_hardware_section.remove(item)
 
+    # Add serial port
+    last_item = None
+    next_instance_id = None
+    for item in virtual_hardware_section.iter(f"{{{namespaces[""]}}}Item"):
+        last_item = item
+        next_instance_id = int(item.find("rasd:InstanceID", namespaces).text) + 1
+
+    if last_item is None:
+        raise RuntimeError("Failed to find the last item")
+
+    serial_port_item = ET.Element(
+        "Item", attrib={f"{{{namespaces["ovf"]}}}required": "false"}
+    )
+    ET.SubElement(
+        serial_port_item, f"{{{namespaces["rasd"]}}}AutomaticAllocation"
+    ).text = "false"
+    ET.SubElement(serial_port_item, f"{{{namespaces["rasd"]}}}ElementName").text = (
+        "serial0"
+    )
+    ET.SubElement(serial_port_item, f"{{{namespaces["rasd"]}}}InstanceID").text = str(
+        next_instance_id
+    )
+    ET.SubElement(serial_port_item, f"{{{namespaces["rasd"]}}}ResourceSubType").text = (
+        "vmware.serialport.device"
+    )
+    # https://opennodecloud.com/howto/2013/12/25/howto-ON-ovf-reference.html
+    serial_port_resource_type_id = 21
+    ET.SubElement(serial_port_item, f"{{{namespaces["rasd"]}}}ResourceType").text = str(
+        serial_port_resource_type_id
+    )
+    ET.SubElement(
+        serial_port_item,
+        f"{{{namespaces["vmw"]}}}Config",
+        attrib={
+            f"{{{namespaces["ovf"]}}}required": "false",
+            f"{{{namespaces["vmw"]}}}key": "yieldOnPoll",
+            f"{{{namespaces["vmw"]}}}value": "false",
+        },
+    )
+
+    ET.indent(serial_port_item, level=3)
+
+    print("Adding serial port...")
+    last_item.addnext(serial_port_item)
+    ET.indent(virtual_hardware_section, level=2)
+
     tree.write(
         f"images/{args.image_name}/{args.image_name}-efi.ovf",
         encoding="UTF-8",
-        xml_declaration=True,
+        xml_declaration=False,
+        doctype='<?xml version="1.0" encoding="UTF-8"?>',
     )
 
     # Change firmware from efi to bios
@@ -88,7 +134,8 @@ def main():
     tree.write(
         f"images/{args.image_name}/{args.image_name}-bios.ovf",
         encoding="UTF-8",
-        xml_declaration=True,
+        xml_declaration=False,
+        doctype='<?xml version="1.0" encoding="UTF-8"?>',
     )
 
     # Compute the SHA1 hashes for new files
