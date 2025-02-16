@@ -90,6 +90,20 @@ main() {
 					${STEP_DIR}/setup_minimalize_server_10.2
 				fi
 				;;
+			'10.4')
+<<<<<<< Updated upstream
+                              	${STEP_DIR}/setup_remove_etcnet
+                              	${STEP_DIR}/setup_minimalize_server_10.4
+                              	;;
+=======
+				${STEP_DIR}/setup_remove_etcnet
+				if test "${TARGET}" == "alt-workstation"; then
+					${STEP_DIR}/setup_minimalize_workstation_10.4
+				else
+					${STEP_DIR}/setup_minimalize_server_10.4
+				fi
+				;;
+>>>>>>> Stashed changes
 			'c10f1' | 'c10f2')
 				${STEP_DIR}/setup_minimalize_server_c10f
 				;;
@@ -123,10 +137,10 @@ main() {
 		${STEP_DIR}/setup_enable_sudo_controls
 		${STEP_DIR}/setup_disable_sshd_password_auth
 		if [ "${BASE_VERSION}" == "c10f1" ] || [ "${BASE_VERSION}" == "c10f2" ]; then
-                        # This step should be done after all
-                        # the operations that require hostname resolution.
-                        ${STEP_DIR}/setup_switch_etcnet_to_systemd-networkd
-                fi
+			# This step should be done after all
+			# the operations that require hostname resolution.
+			${STEP_DIR}/setup_switch_etcnet_to_systemd-networkd
+		fi
 		if test "${BASE_VERSION}" == "8sp" || test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2"; then
 			${STEP_DIR}/setup_integrity_fix
 		fi
@@ -145,9 +159,12 @@ main() {
 			'10.2-vmware')
 				${STEP_DIR}/setup_minimalize_server_10.2
 				;;
+			'10.4-vmware')
+				${STEP_DIR}/setup_minimalize_server_10.4
+				;;
 			'c10f1-vmware' | 'c10f2-vmware')
-                                ${STEP_DIR}/setup_minimalize_server_c10f
-                                ;;
+				${STEP_DIR}/setup_minimalize_server_c10f
+				;;
 		esac
 		${STEP_DIR}/setup_apt
 		${STEP_DIR}/setup_network_manager_ifcfg

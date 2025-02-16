@@ -1,0 +1,16 @@
+opensc
+pcsc-tools
+pcsc-lite
+pcsc-lite-acsccid
+pcsc-lite-asedriveiiie-usb
+pcsc-lite-ccid
+pcsc-lite-rutokens
+pam_pkcs11
+openssl
+openssl-engines
+librtpkcs11ecp
+libjcpkcs11
+isbc-pkcs11
+gnutls-utils
+libp11
+libp11-kit
