@@ -1,0 +1,6 @@
+bacula13-director-sqlite3
+postgresql16
+bacula13-director-postgresql
+bacula13-storage
+bacula13-director-mysql
+bacula13-console

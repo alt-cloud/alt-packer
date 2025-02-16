@@ -24,7 +24,7 @@
 ; group in SELinux-enabled distros because SELinux must be disabled to
 ; perform 'apt-get dist-upgrade' which you will eventually try to
 ; perform when VM is up.
-("/pkg-install" action "write" lists "" auto #t)
+("/pkg-install" action "write" lists "control-sshd" auto #t)
 ("/preinstall" action "write")
 
 ; It should be noted that 'virtio' block device driver will render
@@ -61,4 +61,4 @@
 
 ; We need vmtoolsd for acquiring IP address during configuration
 ; and root ssh login for configuring VM using ssh.
-("/postinstall/firsttime" run "control sshd-password-auth enabled; control sshd-permit-root-login enabled; systemctl restart sshd; systemctl enable --now vmtoolsd")
+("/postinstall/firsttime" run "systemctl enable --now sshd; control sshd-password-auth enabled; control sshd-permit-root-login enabled; systemctl restart sshd; systemctl enable --now vmtoolsd")

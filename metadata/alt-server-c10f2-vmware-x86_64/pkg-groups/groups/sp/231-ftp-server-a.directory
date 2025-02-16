@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=FTP server management
+Name[ru_RU]=Управление сервером FTP
+Comment=FTP server management
+Comment[ru_RU]=Управление сервером FTP
+X-Alterator-PackageList=sp/ftp-server-a
+X-Alterator-Parent=sp/200-server-apps
+X-Alterator-Depends=sp/230-ftp-server sp/100-alterator-server
+X-Alterator-Required=no
+Categories=Server;Networking

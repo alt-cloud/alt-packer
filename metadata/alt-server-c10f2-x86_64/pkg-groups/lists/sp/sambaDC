@@ -1,0 +1,16 @@
+samba-dc
+ldb-tools
+krb5-kinit
+bind-utils
+ldap-user-tools
+task-auth-ad-sssd
+task-samba-dc
+admx-msi-setup
+alterator-gpupdate
+libgtk+3-gir
+gpupdate
+local-policy
+admx-basealt
+admx-firefox
+admx-chromium
+netcmdplus

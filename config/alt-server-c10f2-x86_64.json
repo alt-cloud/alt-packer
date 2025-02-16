@@ -8,6 +8,7 @@
     "boot_finish_cmd": "<wait><enter>initrd /boot/initrd.img<enter>boot<enter>",
     "metadata": "alt-server-c10f2-x86_64",
     "descr": "ALT Linux Server c10f2 x86_64",
+    "disk_size": "10240",
     "image_version": "1.0.0",
     "with_cloudinit": "1",
     "with_sisyphus": "0"

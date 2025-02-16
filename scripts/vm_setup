@@ -93,6 +93,9 @@ main() {
 			'10.4')
 				${STEP_DIR}/setup_remove_etcnet
 				${STEP_DIR}/setup_minimalize_server_10.4
+        ;;
+			'c10f1' | 'c10f2')
+				${STEP_DIR}/setup_minimalize_server_c10f
 				;;
 		esac
 		if test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2"; then
@@ -103,8 +106,6 @@ main() {
 			if test "${BASE_VERSION}" == "8sp"; then
 				${STEP_DIR}/setup_cloudinit
 				${STEP_DIR}/setup_cloudinit_yandex
-			elif test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2"; then
-				${STEP_DIR}/setup_cloudinit_etcnet
 			else
 				${STEP_DIR}/setup_cloudinit_10
 			fi
@@ -125,6 +126,11 @@ main() {
 		${STEP_DIR}/setup_reset_root_password
 		${STEP_DIR}/setup_enable_sudo_controls
 		${STEP_DIR}/setup_disable_sshd_password_auth
+		if [ "${BASE_VERSION}" == "c10f1" ] || [ "${BASE_VERSION}" == "c10f2" ]; then
+                        # This step should be done after all
+                        # the operations that require hostname resolution.
+                        ${STEP_DIR}/setup_switch_etcnet_to_systemd-networkd
+                fi
 		if test "${BASE_VERSION}" == "8sp" || test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2"; then
 			${STEP_DIR}/setup_integrity_fix
 		fi
@@ -146,6 +152,9 @@ main() {
 			'10.4-vmware')
 				${STEP_DIR}/setup_minimalize_server_10.4
 				;;
+			'c10f1-vmware' | 'c10f2-vmware')
+        ${STEP_DIR}/setup_minimalize_server_c10f
+        ;;
 		esac
 		${STEP_DIR}/setup_apt
 		${STEP_DIR}/setup_network_manager_ifcfg
