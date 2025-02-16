@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Trivy security scanner
+Name[ru_RU]=Сканер уязвимостей Trivy
+Comment=Trivy security scanner
+Comment[ru_RU]=Сканер уязвимостей Trivy
+X-Alterator-PackageList=sp/trivy
+X-Alterator-Required=no

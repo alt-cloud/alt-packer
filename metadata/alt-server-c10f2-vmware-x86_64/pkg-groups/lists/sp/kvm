@@ -1,0 +1,6 @@
+libvirt
+libvirt-kvm
+libvirt-admin
+libvirt-daemon-driver-storage
+libvirt-lock-sanlock
+nss-libvirt

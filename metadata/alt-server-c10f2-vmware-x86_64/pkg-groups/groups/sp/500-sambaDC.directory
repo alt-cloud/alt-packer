@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=ALT Domain (domain controller)
+Name[ru_RU]=Альт Домен (контроллер домена)
+Comment=ALT Domain (domain controller)
+Comment[ru_RU]=Альт Домен (контроллер домена)
+X-Alterator-PackageList=sp/sambaDC
+X-Alterator-Conflicts=sp/400-samba sp/domain-server sp/ad-client
+X-Alterator-Required=no
+Categories=Server;Networking

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Network installation server
+Name[ru_RU]=Сервер сетевой установки
+Comment=Network installation server
+Comment[ru_RU]=Сервер сетевой установки
+X-Alterator-PackageList=sp/netinst
+X-Alterator-Parent=sp/200-server-apps
+X-Alterator-Depends=sp/100-alterator-server
+X-Alterator-Required=no
+Categories=Server;Networking

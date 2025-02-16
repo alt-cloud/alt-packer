@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Printing Server
+Name[ru_RU]=Сервер печати
+Comment=Printing Server
+Comment[ru_RU]=Сервер печати
+X-Alterator-PackageList=sp/cups-server
+X-Alterator-Required=no
+X-Alterator-Parent=sp/200-server-apps

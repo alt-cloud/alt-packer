@@ -1,0 +1,14 @@
+cups
+printer-drivers-base
+foomatic-db
+cups-filters
+hplip
+hplip-hpcups
+hplip-hpijs
+printer-driver-oki
+printer-driver-brlaser
+epson-inkjet-printer-escpr
+# for Canon i-SENSYS MF-4410
+# https://bugzilla.altlinux.org/45407
+libxml2
+libpangox-compat
