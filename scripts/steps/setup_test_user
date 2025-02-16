@@ -2,6 +2,8 @@
 set -euo pipefail
 
 echo "Configuring Test user"
+check=$(rpm -qa alterator-users)
+if [ -z "$check" ]; then echo "Install alterator-users" && apt-get install -y alterator-users; fi
 alterator-cmdline -d /users/create_account new_name "test" allow_su true auto true passwd_1 "123" passwd_2 "123"
 mkdir -p /home/test/.ssh
 chown -Rv test:test /home/test
