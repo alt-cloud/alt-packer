@@ -1,0 +1,5 @@
+task-auth-freeipa
+freeipa-client
+certmonger
+systemd
+libsss_sudo

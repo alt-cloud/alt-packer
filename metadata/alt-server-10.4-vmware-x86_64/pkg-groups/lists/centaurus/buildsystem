@@ -1,0 +1,12 @@
+fakeroot
+basesystem
+rpm-build
+sisyphus_check
+genisoimage
+squashfs-tools
+hasher
+hasher-priv
+time
+mkimage
+apt-repo-tools
+builder-useradd

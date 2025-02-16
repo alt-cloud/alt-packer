@@ -90,6 +90,10 @@ main() {
 					${STEP_DIR}/setup_minimalize_server_10.2
 				fi
 				;;
+			'10.4')
+				${STEP_DIR}/setup_remove_etcnet
+				${STEP_DIR}/setup_minimalize_server_10.4
+				;;
 		esac
 		if test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2"; then
 			${STEP_DIR}/setup_c10f_repos
@@ -138,6 +142,9 @@ main() {
 				;;
 			'10.2-vmware')
 				${STEP_DIR}/setup_minimalize_server_10.2
+				;;
+			'10.4-vmware')
+				${STEP_DIR}/setup_minimalize_server_10.4
 				;;
 		esac
 		${STEP_DIR}/setup_apt
