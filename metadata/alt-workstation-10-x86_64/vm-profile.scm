@@ -1,7 +1,11 @@
 ((workstation
   (title . "Setup for workstation")
   (action . trivial)
-  (actiondata 
+  (actiondata
+               ; 10 MiB (for BIOS boot partition)
+               ("" (size 20480 . 20480) (methods plain))
+	       ; 10GB * 1024 * 1024 * 2 
+	       ;("/" (size 18874368 . 18874368 ) (fsim . "Ext2/3") (methods plain))
                ("/" (size 20971520 . 20971520 ) (fsim . "Ext2/3") (methods plain))
                ;("/var" (size 1024000 . #t) (fsim . "Ext2/3") (methods  plain))
                )))

@@ -37,7 +37,8 @@
 ; QEMU which makes devices to look like classic '/dev/sda'. It allows
 ; to have one 'autoinstall.scm' file for both QEMU and VirtualBox
 ; reducing duplication, errors and differences.
-("/grub" action "write" device "/dev/sda" passwd #f passwd_1 "*" passwd_2 "*")
+;("/grub" action "write" device "/dev/sda" passwd #f passwd_1 "*" passwd_2 "*")
+("/grub" action "write" language ("ru_RU") device "efi" passwd #f passwd_1 "*" passwd_2 "*")
 
 ("/net-eth" action "write" reset #t)
 ; There is a problem with 8SP networking - "persistent" interface names
