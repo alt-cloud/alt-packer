@@ -8,6 +8,7 @@
     "boot_finish_cmd": "<wait><enter>initrd /boot/initrd.img<enter>boot<enter>",
     "metadata": "alt-workstation-10-x86_64",
     "descr": "ALT Linux Workstation 10.4 x86_64",
+    "disk_size": "11264",
     "image_version": "1.0.0",
     "with_cloudinit": "1",
     "with_sisyphus": "0"

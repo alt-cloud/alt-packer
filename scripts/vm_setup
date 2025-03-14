@@ -117,6 +117,7 @@ main() {
 		${STEP_DIR}/setup_agent
 		${STEP_DIR}/setup_grub2
 		${STEP_DIR}/setup_grub2_fixed_eth_names
+		${STEP_DIR}/setup_gpt_partition_table
 		${STEP_DIR}/setup_restore_sshd_config
 		${STEP_DIR}/setup_ssh
 		${STEP_DIR}/setup_prepare_new_instance

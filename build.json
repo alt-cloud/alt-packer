@@ -114,6 +114,7 @@
             "name": "cloud-vm",
             "type": "qemu",
             "format": "qcow2",
+	    "efi_boot": true,
             "accelerator": "kvm",
             "vm_name": "{{ user `vm_name_full` }}.qcow2",
             "disk_size": "{{ user `disk_size` }}",
