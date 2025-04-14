@@ -90,7 +90,7 @@ main() {
 					${STEP_DIR}/setup_minimalize_server_10.2
 				fi
 				;;
-			'10.4')
+			'10.4' | '10.4-btrfs')
 				${STEP_DIR}/setup_remove_etcnet
 				if test "${TARGET}" == "alt-workstation"; then
 					${STEP_DIR}/setup_minimalize_workstation_10.4
