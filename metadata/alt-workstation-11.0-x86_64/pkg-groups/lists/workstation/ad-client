@@ -1,0 +1,5 @@
+libwbclient
+task-auth-ad-sssd
+task-auth-ad-winbind
+krb5-ticket-watcher
+task-auth-ldap-sssd

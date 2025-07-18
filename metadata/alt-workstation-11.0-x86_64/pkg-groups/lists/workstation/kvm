@@ -1,0 +1,5 @@
+qemu-system
+libvirt
+virt-manager
+openssh-askpass-common
+gtk2-ssh-askpass
