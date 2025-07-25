@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Web-based interface management support
+X-Alterator-PackageList=centaurus/web-interface
+X-Alterator-Required=no
+Name[ru_RU]=Поддержка управления через web-интерфейс

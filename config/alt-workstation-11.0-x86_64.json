@@ -1,0 +1,16 @@
+{
+    "iso_url": "http://ftp.altlinux.org/pub/distributions/ALTLinux/p11/images/workstation/x86_64/alt-workstation-11.0-x86_64.iso",
+    "iso_target_path": "alt-workstation-11.0-x86_64.iso",
+    "iso_checksum": "088890e3f4767129a474e96094356ca4",
+    "iso_checksum_type": "md5",
+    "boot_escape_cmd": "c",
+    "boot_cmd": "linux /boot/vmlinuz showopts net.ifnames=0 selinux=0 changedisk live root=bootchain bootchain=fg,altboot automatic=method:disk,uuid:2025-04-19-14-59-13-00 stagename=live init=/usr/libexec/install2/install2-init ramdisk_size=1664557 lowmem quiet splash",
+    "boot_finish_cmd": "<wait><enter>initrd /boot/initrd.img<enter>boot<enter>",
+    "metadata": "alt-workstation-11.0-x86_64",
+    "descr": "ALT Linux Workstation 11.0 x86_64",
+    "disk_size": "13312",
+    "image_version": "1.0.0",
+    "with_cloudinit": "1",
+    "with_sisyphus": "0"
+}
+

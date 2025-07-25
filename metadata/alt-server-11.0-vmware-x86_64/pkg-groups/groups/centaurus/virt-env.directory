@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Support for virtual environments
+X-Alterator-PackageList=centaurus/virt-env
+X-Alterator-Required=no
+Name[ru_RU]=Поддержка работы в виртуальных окружениях
