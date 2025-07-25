@@ -1,0 +1,16 @@
+{
+    "iso_url": "http://ftp.altlinux.org/pub/distributions/ALTLinux/p11/images/server/x86_64/alt-server-11.0-x86_64.iso",
+    "iso_target_path": "alt-server-11.0-x86_64.iso",
+    "iso_datastore_path": "[localstorage] ISO/alt-server-11.0-x86_64.iso",
+    "iso_checksum": "35af6c21fd3f73005647f676664de76a",
+    "iso_checksum_type": "md5",
+    "boot_escape_cmd": "c",
+    "boot_cmd": "linux /boot/vmlinuz showopts selinux=0 changedisk live root=bootchain bootchain=waitdev,fg,altboot automatic=method:disk,uuid:2025-05-22-08-52-44-00 stagename=live init=/usr/libexec/install2/install2-init ramdisk_size=783865 lowmem",
+    "boot_finish_cmd": "<wait><enter>initrd /boot/initrd.img<enter>boot<enter>",
+    "metadata": "alt-server-11.0-vmware-x86_64",
+    "descr": "ALT Linux Server 11.0 x86_64",
+    "disk_size": "6144",
+    "image_version": "1.0.0",
+    "with_cloudinit": "1",
+    "with_sisyphus": "0"
+}

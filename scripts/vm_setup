@@ -98,6 +98,14 @@ main() {
 					${STEP_DIR}/setup_minimalize_server_10.4
 				fi
 				;;
+			'11.0')
+				${STEP_DIR}/setup_remove_etcnet
+				if test "${TARGET}" == "alt-workstation"; then
+					${STEP_DIR}/setup_minimalize_workstation_11.0
+				else
+					${STEP_DIR}/setup_minimalize_server_11.0
+				fi
+				;;
 			'c10f1' | 'c10f2')
 				${STEP_DIR}/setup_minimalize_server_c10f
 				;;
@@ -156,6 +164,9 @@ main() {
 				;;
 			'10.4-vmware')
 				${STEP_DIR}/setup_minimalize_server_10.4
+				;;
+			'11.0-vmware')
+				${STEP_DIR}/setup_minimalize_server_11.0
 				;;
 			'c10f1-vmware' | 'c10f2-vmware')
 				${STEP_DIR}/setup_minimalize_server_c10f

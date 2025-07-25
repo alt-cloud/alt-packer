@@ -1,0 +1,41 @@
+#!/bin/sh
+set -euo pipefail
+
+echo "Minimalize VM for clouds"
+apt-get remove -y -D \
+	docs-alt-server \
+	dosfstools \
+	eject \
+	fatresize \
+	firmware-aic94xx-seq \
+	firmware-alsa-sof \
+	firmware-ast_dp501 \
+	firmware-intel-ucode \
+	firmware-linux \
+	firmware-ql6312 \
+	fonts-ttf-google-croscore-arimo \
+	hdparm \
+	iucode_tool \
+	jfsutils \
+	lftp \
+	lvm2 \
+	mailx \
+	make-initrd-luks \
+	make-initrd-lvm \
+	make-initrd-mdadm \
+	make-initrd-ucode \
+	make-initrd-multipath \
+	mdadm \
+	memtest86+ \
+	mtools \
+	nfs-utils \
+	ntfs-3g \
+	p7zip \
+	postfix \
+	postfix-tls \
+	reiserfsprogs \
+	rp-pppoe-base \
+	smartmontools \
+	usbutils \
+	xfsprogs
+echo "VM minimalized"

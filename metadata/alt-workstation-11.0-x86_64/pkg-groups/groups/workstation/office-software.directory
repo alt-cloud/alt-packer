@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Office Software
+Name[ru_RU]=Офисное ПО
+X-Alterator-PackageList=workstation/libreoffice
+X-Alterator-Required=yes
+X-Alterator-Parent=workstation/10-office
+Categories=KDE;KDE4;GNOME;XFCE

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Directory
+X-Alterator-PackageList=workstation/ad-client
+X-Alterator-Required=no
+X-Alterator-Parent=workstation/z01-add-clients
+Categories=KDE;GNOME;XFCE
+
+Name=ALT Domain
+Name[ru_RU]=Альт Домен
+Comment=ALT Domain client(Active Directory)
+Comment[ru_RU]=Клиент для Альт Домен (служба каталогов Active Directory)
