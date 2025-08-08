@@ -1,0 +1,17 @@
+{
+    "iso_url": "http://www.example.com",
+    "iso_target_path": "alt-server-sp-10.2.1-x86_64.iso",
+    "iso_datastore_path": "[localstorage] ISO/alt-server-sp-10.2.1-x86_64.iso",
+    "iso_checksum": "35e2c0104095da488fa319fcb7a9d30e",
+    "iso_checksum_type": "md5",
+    "boot_escape_cmd": "c",
+    "boot_cmd": "linux /boot/vmlinuz showopts selinux=0 changedisk automatic=method:cdrom lowmem",
+    "boot_finish_cmd": "<wait><enter>initrd /boot/initrd.img<enter>boot<enter>",
+    "metadata": "alt-server-sp-10.2.1-vmware-x86_64",
+    "descr": "ALT Linux SP Server 10.2.1 x86_64",
+    "disk_size": "13312",
+    "image_version": "1.0.0",
+    "with_cloudinit": "1",
+    "with_sisyphus": "0"
+}
+

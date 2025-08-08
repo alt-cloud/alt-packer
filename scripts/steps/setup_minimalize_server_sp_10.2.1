@@ -1,0 +1,34 @@
+#! /bin/sh
+set -euo pipefail
+
+echo "=> Minimalizing VM for clouds..."
+
+apt-get remove -y -D \
+	dosfstools \
+	eject \
+	fatresize \
+	firmware-linux \
+	firmware-ast_dp501 \
+	firmware-aic94xx-seq \
+	hdparm \
+	jfsutils \
+	lftp \
+	lm_sensors3 \
+	lvm2 \
+	make-initrd-luks \
+	make-initrd-lvm \
+	make-initrd-mdadm \
+	mdadm \
+	memtest86+ \
+	mtools \
+	nfs-utils \
+	ntfs-3g \
+	p7zip \
+	postfix \
+	reiserfsprogs \
+	rp-pppoe-base \
+	smartmontools \
+	usbutils \
+	xfsprogs \
+
+echo "=> Minimalizing VM for clouds completed"

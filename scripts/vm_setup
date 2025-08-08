@@ -109,8 +109,11 @@ main() {
 			'c10f1' | 'c10f2')
 				${STEP_DIR}/setup_minimalize_server_c10f
 				;;
+			'sp-10.2.1')
+				${STEP_DIR}/setup_minimalize_server_sp_10.2.1
+				;;
 		esac
-		if test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2"; then
+		if test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2" || test "${BASE_VERSION}" == "sp-10.2.1"; then
 			${STEP_DIR}/setup_c10f_repos
 		fi
 		${STEP_DIR}/setup_apt
@@ -118,6 +121,8 @@ main() {
 			if test "${BASE_VERSION}" == "8sp"; then
 				${STEP_DIR}/setup_cloudinit
 				${STEP_DIR}/setup_cloudinit_yandex
+			elif test "${BASE_VERSION}" == "sp-10.2.1"; then
+				${STEP_DIR}/setup_cloudinit_11
 			else
 				${STEP_DIR}/setup_cloudinit_10
 			fi
@@ -139,12 +144,12 @@ main() {
 		${STEP_DIR}/setup_reset_root_password
 		${STEP_DIR}/setup_enable_sudo_controls
 		${STEP_DIR}/setup_disable_sshd_password_auth
-		if [ "${BASE_VERSION}" == "c10f1" ] || [ "${BASE_VERSION}" == "c10f2" ]; then
+		if [ "${BASE_VERSION}" == "c10f1" ] || [ "${BASE_VERSION}" == "c10f2" ] || [ "${BASE_VERSION}" == "sp-10.2.1" ]; then
 			# This step should be done after all
 			# the operations that require hostname resolution.
 			${STEP_DIR}/setup_switch_etcnet_to_systemd-networkd
 		fi
-		if test "${BASE_VERSION}" == "8sp" || test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2"; then
+		if test "${BASE_VERSION}" == "8sp" || test "${BASE_VERSION}" == "c10f1" || test "${BASE_VERSION}" == "c10f2" || test "${BASE_VERSION}" == "sp-10.2.1"; then
 			${STEP_DIR}/setup_integrity_fix
 		fi
 		${STEP_DIR}/setup_clean
@@ -152,7 +157,7 @@ main() {
 
 	if test "${VM_TYPE}" == "vsphere"; then
 		${STEP_DIR}/setup_remove_cdroms_repos
-		if test "${BASE_VERSION}" == "c10f1-vmware" || test "${BASE_VERSION}" == "c10f2-vmware"; then
+		if test "${BASE_VERSION}" == "c10f1-vmware" || test "${BASE_VERSION}" == "c10f2-vmware" || test "${BASE_VERSION}" == "sp-10.2.1-vmware"; then
 			${STEP_DIR}/setup_c10f_repos
 		fi
 		case "${BASE_VERSION}" in
@@ -171,6 +176,9 @@ main() {
 			'c10f1-vmware' | 'c10f2-vmware')
 				${STEP_DIR}/setup_minimalize_server_c10f
 				;;
+			'sp-10.2.1-vmware')
+				${STEP_DIR}/setup_minimalize_server_sp_10.2.1
+				;;
 		esac
 		${STEP_DIR}/setup_apt
 		${STEP_DIR}/setup_network_manager_ifcfg
@@ -178,7 +186,11 @@ main() {
 		${STEP_DIR}/setup_grub2_fixed_eth_names
 		${STEP_DIR}/setup_gpt_partition_table
 		if test "${CLOUDINIT}" == "1"; then
-			${STEP_DIR}/setup_cloudinit
+			if test "${BASE_VERSION}" == "sp-10.2.1-vmware"; then
+				${STEP_DIR}/setup_cloudinit_11
+			else
+				${STEP_DIR}/setup_cloudinit
+			fi 
 			${STEP_DIR}/setup_cloudinit_vmware
 		else
 			${STEP_DIR}/setup_repart_growfs
@@ -197,7 +209,7 @@ main() {
 		${STEP_DIR}/setup_sudo
 		${STEP_DIR}/setup_enable_sudo_controls
 		${STEP_DIR}/setup_disable_sshd_password_auth
-		if test "${BASE_VERSION}" == "c10f1-vmware" || test "${BASE_VERSION}" == "c10f2-vmware"; then
+		if test "${BASE_VERSION}" == "c10f1-vmware" || test "${BASE_VERSION}" == "c10f2-vmware" || test "${BASE_VERSION}" == "sp-10.2.1-vmware"; then
 			${STEP_DIR}/setup_integrity_fix
 		fi
 		${STEP_DIR}/setup_clean
