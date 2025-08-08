@@ -1,0 +1,11 @@
+#! /bin/sh
+set -euo pipefail
+
+echo "Configuring cloud-init"
+apt-get -y install cloud-init cloud-init-config-netplan
+systemctl enable cloud-init-main
+systemctl enable cloud-init-local
+systemctl enable cloud-init-network
+systemctl enable cloud-final
+systemctl enable cloud-config
+echo "cloud-init configured"

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=PVE virtualization server
+Name[ru_RU]=Сервер виртуализации (PVE)
+Comment=Proxmox Virtual Environment
+Comment[ru_RU]=Виртуальное Окружение Proxmox
+X-Alterator-Required=no
+X-Alterator-Conflicts=sp/600-kvm
+X-Alterator-PackageList=sp/pve;network/openvswitch;storage/ceph-mon;storage/ceph-mgr;storage/ceph-osd;storage/ceph-radosgw

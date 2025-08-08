@@ -1,0 +1,16 @@
+# copy from container/podman
+podman
+buildah
+criu
+# Additional
+podman-docker
+podman-remote
+podman-compose
+# podman security
+podsec
+podsec-k8s
+podsec-inotify
+podsec-k8s-rbac
+#podsec-icinga
+podsec-nagios
+trivy

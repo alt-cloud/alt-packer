@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=DNS server management
+Name[ru_RU]=Управление сервером DNS
+Comment=DNS server management
+Comment[ru_RU]=Управление сервером DNS
+X-Alterator-PackageList=sp/dns-server-a
+X-Alterator-Depends=sp/220-dns-server sp/100-alterator-server
+X-Alterator-Parent=sp/200-server-apps
+X-Alterator-Required=no
+Categories=Server;Networking
