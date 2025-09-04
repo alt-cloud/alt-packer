@@ -11,6 +11,7 @@ SSH_USER="${SSH_USER:-test}"
 TARGET_REPOS="${TARGET_REPOS:-sisyphus}"
 ARCH="${ARCH:-x86_64}"
 CLOUDINIT="${CLOUDINIT:-0}"
+INITRD_DRACUT="${INITRD_DRACUT:-0}"
 SISYPHUS="${SISYPHUS:-0}"
 ROOT_PASS="${ROOT_PASS:-123}"
 PASS="${PASS:-123}"
@@ -37,6 +38,7 @@ show_vars() {
 	echo "Targeting repos for: ${TARGET_REPOS}"
 	echo "Targeting repos for architecture: ${ARCH}"
 	echo "Enable cloud-init: ${CLOUDINIT}"
+	echo "Build initrd by dracut: ${INITRD_DRACUT}"
 	echo "Update to Sisyphus: ${SISYPHUS}"
 }
 
@@ -121,13 +123,19 @@ main() {
 			if test "${BASE_VERSION}" == "8sp"; then
 				${STEP_DIR}/setup_cloudinit
 				${STEP_DIR}/setup_cloudinit_yandex
-			elif test "${BASE_VERSION}" == "sp-10.2.1"; then
+			elif test "${BASE_VERSION}" == "sp-10.2.1" || test "${BASE_VERSION}" == "c10f2"; then
 				${STEP_DIR}/setup_cloudinit_11
 			else
 				${STEP_DIR}/setup_cloudinit_10
 			fi
+			if test "${INITRD_DRACUT}" == "1"; then
+				${STEP_DIR}/setup_fix_cloud-init_condition
+			fi
 		fi
 		${STEP_DIR}/setup_agent
+		if test "${INITRD_DRACUT}" == "1"; then
+			${STEP_DIR}/setup_initramfs
+		fi
 		${STEP_DIR}/setup_grub2
 		${STEP_DIR}/setup_grub2_fixed_eth_names
 		${STEP_DIR}/setup_gpt_partition_table
