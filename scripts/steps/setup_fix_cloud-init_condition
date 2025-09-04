@@ -1,0 +1,11 @@
+#! /bin/sh
+set -euo pipefail
+
+echo "Fix ConditionVirtualization for cloud-init systemd-units"
+
+sed -i 's|ConditionVirtualization=yes|#ConditionVirtualization=yes|' /lib/systemd/system/cloud-init-local.service
+sed -i 's|ConditionVirtualization=yes|#ConditionVirtualization=yes|' /lib/systemd/system/cloud-init-network.service
+systemctl daemon-reload
+
+echo "cloud-init fixed"
+

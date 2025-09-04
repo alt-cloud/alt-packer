@@ -1,0 +1,36 @@
+#! /bin/sh
+set -euo pipefail
+
+echo "Configuring initramfs"
+apt-get install -y dracut
+
+#Add default using dracut
+sed -i 's|#INITRD_GENERATOR=make-initrd|INITRD_GENERATOR=mkinitrd|' /etc/sysconfig/installkernel
+sed -i 's|MKINITRD=/usr/sbin/mkinitrd-make-initrd|MKINITRD=dracut|' /etc/sysconfig/installkernel
+
+# Add setting for alt dracut.conf.d
+configfile="/usr/lib/dracut/dracut.conf.d/01-dist.conf"
+# Add force-drivers
+echo 'force_drivers+=" virtio_scsi virtio_pci sd_mod sg virtio_blk "' >> $configfile
+# Add flags
+sed -i 's|hostonly="yes"|hostonly="no"|' $configfile
+# Add name of output initrd-file
+if test $(grep -L '^initrdname' $configfile); then
+	echo 'initrdname="initrd-$kernel.img"' >> $configfile
+fi
+
+##########################################################
+# Handmade settings just for testing (this settings will be crashed after update-kernel)
+# Get kernel version
+#package=$(rpm -qa --queryformat '%{NAME}-%{VERSION}-%{RELEASE}\n' 'kernel-image*' | sort -V | head -n 1)
+#kernel_version=$(echo "$package" | sed 's/^[^-]*-[^-]*-\(.*\)-\(.*\)-\(.*\)/\2-\1-\3/')
+# Create initramfs
+#dracut --kver "$kernel_version" --no-hostonly --force-drivers " virtio_scsi virtio_pci sd_mod sg virtio_blk " -f
+#dracut --regenerate-all --no-hostonly --force-drivers " virtio_scsi virtio_pci sd_mod sg virtio_blk " -f
+#ln -sf /boot/vmlinuz-${kernel_version} /boot/vmlinuz
+#ln -sf /boot/initramfs-${kernel_version}.img /boot/initrd-un-def.img
+#ln -sf /boot/initramfs-${kernel_version}.img /boot/initrd.img
+#ls -laptc /boot/init*
+##########################################################
+
+echo "Initramfs configured"
