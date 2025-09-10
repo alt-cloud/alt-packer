@@ -1,0 +1,6 @@
+task-auth-ad-sssd
+alterator-gpupdate
+libgtk+3-gir
+gpupdate
+local-policy
+krb5-ticket-watcher

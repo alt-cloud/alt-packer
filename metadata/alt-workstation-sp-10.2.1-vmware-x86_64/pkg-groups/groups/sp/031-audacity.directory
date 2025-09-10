@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Audacity audio editor
+Name[ru_RU]=Звуковой редактор Audacity
+Comment=Audacity audio editor
+Comment[ru_RU]=Звуковой редактор Audacity
+X-Alterator-PackageList=sp/audacity
+X-Alterator-Required=no

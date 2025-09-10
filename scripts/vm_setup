@@ -177,7 +177,11 @@ main() {
 				${STEP_DIR}/setup_minimalize_server_c10f
 				;;
 			'sp-10.2.1-vmware')
-				${STEP_DIR}/setup_minimalize_server_sp_10.2.1
+				if test "${TARGET}" == "alt-workstation"; then
+                                        ${STEP_DIR}/setup_minimalize_workstation_sp_10.2.1
+                                else
+					${STEP_DIR}/setup_minimalize_server_sp_10.2.1
+				fi
 				;;
 		esac
 		${STEP_DIR}/setup_apt

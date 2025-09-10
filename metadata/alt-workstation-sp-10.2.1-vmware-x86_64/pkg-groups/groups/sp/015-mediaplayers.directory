@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=VLC mediaplayer
+Name[ru_RU]=Медиаплееры
+Comment=Mediaplayers
+Comment[ru_RU]=Медиаплееры
+X-Alterator-PackageList=sp/mediaplayers
+X-Alterator-Required=yes

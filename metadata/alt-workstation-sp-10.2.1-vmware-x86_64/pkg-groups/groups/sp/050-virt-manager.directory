@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Graphical manager for virtual machines
+Name[ru_RU]=Управление виртуальными машинами
+Comment=Graphical manager for virtual machines
+Comment[ru_RU]=Управление виртуальными машинами
+X-Alterator-PackageList=sp/virt-manager
+X-Alterator-Required=no

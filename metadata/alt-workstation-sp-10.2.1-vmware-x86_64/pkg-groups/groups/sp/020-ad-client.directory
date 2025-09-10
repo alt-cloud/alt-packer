@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=ALT Domain client
+Name[ru_RU]=Клиент Альт Домен
+Comment=ALT Domain client
+Comment[ru_RU]=Клиент Альт Домен
+X-Alterator-PackageList=sp/ad-client
+X-Alterator-Required=no
+Categories=Server;Networking
