@@ -1,6 +1,7 @@
 #!/bin/sh
 set -euo pipefail
-
+#for version < 11.1 add:
+#libaio libtcl make-initrd-devmapper
 echo "Minimalize VM for clouds"
 apt-get remove -y -D \
 	dosfstools \
@@ -15,11 +16,8 @@ apt-get remove -y -D \
 	firmware-zd.* \
 	iucode_tool \
 	lftp \
-	libaio \
-	libtcl \
 	lm_sensors3 \
 	lvm2 \
-	make-initrd-devmapper \
 	make-initrd-luks \
 	make-initrd-lvm \
 	make-initrd-mdadm \

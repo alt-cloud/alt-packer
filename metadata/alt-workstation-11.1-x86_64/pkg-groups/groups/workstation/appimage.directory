@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=AppImage manager(gearlever)
+X-Alterator-Parent=workstation/z00-add-3dparty
+X-Alterator-PackageList=workstation/gearlever
+X-Alterator-Required=no
+Name[ru_RU]=Управление AppImage(gearlever)

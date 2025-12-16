@@ -98,7 +98,7 @@ main() {
 					${STEP_DIR}/setup_minimalize_server_10.4
 				fi
 				;;
-			'11.0')
+			'11.0' | '11.1')
 				${STEP_DIR}/setup_remove_etcnet
 				if test "${TARGET}" == "alt-workstation"; then
 					${STEP_DIR}/setup_minimalize_workstation_11.0
@@ -121,7 +121,7 @@ main() {
 			if test "${BASE_VERSION}" == "8sp"; then
 				${STEP_DIR}/setup_cloudinit
 				${STEP_DIR}/setup_cloudinit_yandex
-			elif test "${BASE_VERSION}" == "sp-10.2.1"; then
+			elif test "${BASE_VERSION}" == "sp-10.2.1" || test "${BASE_VERSION}" == "11.1"; then
 				${STEP_DIR}/setup_cloudinit_11
 			else
 				${STEP_DIR}/setup_cloudinit_10
