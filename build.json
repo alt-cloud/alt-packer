@@ -413,6 +413,7 @@
                 "TARGET_REPOS={{ user `target_version` }}",
                 "ARCH={{ user `arch` }}",
                 "CLOUDINIT={{ user `with_cloudinit` }}",
+		"INITRD_DRACUT={{ user `initrd_with_dracut` }}",
                 "SISYPHUS={{ user `with_sisyphus` }}",
                 "OPENUDS_ACTOR_SSL_VALIDATION={{ user `openuds_actor_ssl_validation` }}",
                 "OPENUDS_HOST={{ user `openuds_host` }}",
