@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Scanning
+Name[ru_RU]=Поддержка сканеров
+Comment=Scanning
+Comment[ru_RU]=Поддержка сканеров
+X-Alterator-PackageList=sp/scanning
+X-Alterator-Required=yes
+Categories=KDE;KDE4;GNOME;XFCE

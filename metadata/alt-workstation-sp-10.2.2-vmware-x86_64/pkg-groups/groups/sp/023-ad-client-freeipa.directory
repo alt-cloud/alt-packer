@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=FreeIPA client
+Name[ru_RU]=Клиент FreeIPA
+Comment=FreeIPA client
+Comment[ru_RU]=Клиент FreeIPA
+X-Alterator-PackageList=sp/ad-client-freeipa
+X-Alterator-Required=no
+Categories=Server;Networking

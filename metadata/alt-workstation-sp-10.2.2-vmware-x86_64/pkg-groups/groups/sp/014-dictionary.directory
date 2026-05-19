@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Dictionary
+Name[ru_RU]=Словарь
+Comment=Dictionary
+Comment[ru_RU]=Словарь
+X-Alterator-PackageList=sp/dictionary
+X-Alterator-Required=yes
+Categories=GNOME;XFCE

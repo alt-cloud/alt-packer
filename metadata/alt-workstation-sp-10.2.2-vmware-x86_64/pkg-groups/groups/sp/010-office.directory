@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Office packages
+Name[ru_RU]=Офисный пакет
+Comment=Office packages
+Comment[ru_RU]=Офисный пакет
+X-Alterator-PackageList=sp/office
+X-Alterator-Required=yes

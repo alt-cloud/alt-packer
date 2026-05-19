@@ -1,0 +1,16 @@
+samba-dc
+ldb-tools
+krb5-kinit
+bind-utils
+ldap-user-tools
+task-auth-ad-sssd
+task-samba-dc
+task-auth-ad-winbind
+diag-domain-controller
+diag-domain-client
+alterator-gpupdate
+libgtk+3-gir
+gpupdate
+local-policy
+admx-basealt
+netcmdplus

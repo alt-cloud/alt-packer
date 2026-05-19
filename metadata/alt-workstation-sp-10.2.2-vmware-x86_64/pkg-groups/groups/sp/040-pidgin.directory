@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=IM client Pidgin
+Name[ru_RU]=Обмен мгновенными сообщениями (Pidgin)
+Comment=IM client Pidgin
+Comment[ru_RU]=Обмен мгновенными сообщениями (Pidgin)
+X-Alterator-PackageList=sp/pidgin
+X-Alterator-Required=no

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Mail Client
+Name[ru_RU]=Электронная почта
+Comment=Mail Client
+Comment[ru_RU]=Электронная почта
+X-Alterator-PackageList=sp/mail
+X-Alterator-Required=yes

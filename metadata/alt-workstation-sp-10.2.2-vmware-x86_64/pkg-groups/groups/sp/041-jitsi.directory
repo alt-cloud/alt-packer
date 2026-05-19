@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=IM client Jitsi
+Name[ru_RU]=Обмен мгновенными сообщениями (Jitsi)
+Comment=IM client Jitsi
+Comment[ru_RU]=Обмен мгновенными сообщениями (Jitsi)
+X-Alterator-PackageList=sp/jitsi
+X-Alterator-Required=no

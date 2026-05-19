@@ -1,0 +1,13 @@
+icinga2
+icinga2-doc
+icingaweb2-style-altsp
+icingaweb2
+#icingaweb2-php-mysql
+icingaweb2-php-pgsql
+icingaweb2-nginx
+icingaweb2-php-fpm
+icingaweb2-cli
+#icinga2-ido-mysql
+icinga2-ido-pgsql
+icingaweb2-module-director
+nagwad-icinga-master

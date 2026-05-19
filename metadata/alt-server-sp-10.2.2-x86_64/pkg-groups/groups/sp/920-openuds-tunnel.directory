@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=OpenUDS VDS tunneling
+Name[ru_RU]=Сервер туннелирования виртуальных рабочих столов OpenUDS
+Comment=OpenUDS VDS tunneling
+Comment[ru_RU]=Сервер туннелирования виртуальных рабочих столов OpenUDS
+X-Alterator-PackageList=sp/openuds-tunnel
+X-Alterator-Required=no
+X-Alterator-Conflicts=sp/910-openuds
+Categories=Server;Networking

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Monitoring workbench
+Name[ru_RU]=Рабочее место контролёра событий безопасности
+Comment=Monitoring workbench
+Comment[ru_RU]=Рабочее место контролёра событий безопасности
+Type=Directory
+X-Alterator-Required=no
+X-Alterator-PackageList=sp/signal-monitor
+X-Alterator-Conflicts=sp/000-signal-client
