@@ -1,0 +1,9 @@
+virt-manager
+#polkit
+openssh-askpass-common-gostcrypto
+gtk2-ssh-askpass
+libvirt
+qemu-system
+libvirt-kvm
+libvirt-lock-sanlock
+nss-libvirt

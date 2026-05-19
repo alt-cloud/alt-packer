@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Mail Server (SMTP, IMAP, POP3)
+Name[ru_RU]=Почтовый сервер (SMTP, IMAP, POP3)
+Comment=Mail Server (SMTP, IMAP, POP3)
+Comment[ru_RU]=Почтовый сервер (SMTP, IMAP, POP3)
+X-Alterator-PackageList=sp/mail-server
+X-Alterator-Parent=sp/200-server-apps
+X-Alterator-Required=no
+Categories=Server;Networking

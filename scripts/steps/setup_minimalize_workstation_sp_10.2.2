@@ -1,0 +1,23 @@
+#! /bin/sh
+set -euo pipefail
+
+echo "=> Minimalizing VM for clouds..."
+
+apt-get remove -y -D \
+	dosfstools \
+	fatresize \
+	firmware-linux \
+	firmware-alsa-sof \
+	hdparm \
+	lvm2 \
+	make-initrd-luks \
+	make-initrd-lvm \
+	make-initrd-mdadm \
+	mdadm \
+	ntfs-3g \
+	p7zip \
+	postfix \
+	smartmontools \
+	xfsprogs
+
+echo "=> Minimalizing VM for clouds completed"

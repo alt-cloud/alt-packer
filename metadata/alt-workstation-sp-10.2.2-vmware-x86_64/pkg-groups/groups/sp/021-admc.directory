@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=ALT Domain (Administration Tools)
+Name[ru_RU]=Альт Домен (инструменты администрирования)
+Comment=Domain Administration Tools and Administrative Templates
+Comment[ru_RU]=Инструменты администрирования домена и административные шаблоны
+X-Alterator-PackageList=sp/admc
+X-Alterator-Required=no

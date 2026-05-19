@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Graphics editing
+Name[ru_RU]=Обработка графики
+Comment=Graphics editing
+Comment[ru_RU]=Обработка графики
+X-Alterator-PackageList=sp/graphics-editing
+X-Alterator-Required=no
+Categories=KDE;KDE4;GNOME

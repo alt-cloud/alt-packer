@@ -1,0 +1,8 @@
+hplip-gui
+hplip-sane
+system-config-printer
+system-config-printer-udev
+python3-module-cupshelpers
+printer-drivers-X11
+printer-testpages
+samba-client

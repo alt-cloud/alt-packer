@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=KVM virtualization server
+Name[ru_RU]=Сервер виртуализации (KVM)
+Comment=KVM basic virtualization
+Comment[ru_RU]=Базовая виртуализация (KVM)
+X-Alterator-PackageList=sp/kvm
+X-Alterator-Required=no

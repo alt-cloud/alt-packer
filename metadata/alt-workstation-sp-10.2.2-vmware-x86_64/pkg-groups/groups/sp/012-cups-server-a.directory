@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Printing system setup
+Name[ru_RU]=Настройка системы печати
+Comment=Printing system setup
+Comment[ru_RU]=Настройка системы печати
+X-Alterator-PackageList=sp/cups-server;sp/cups-server-a
+X-Alterator-Required=yes

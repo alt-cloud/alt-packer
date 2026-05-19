@@ -1,0 +1,6 @@
+bacula15-director-sqlite3
+postgresql16
+bacula15-director-postgresql
+bacula15-storage
+bacula15-director-mysql
+bacula15-console
