@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Quick Preview for Files (Sushi)
+Name[ru_RU]=Быстрый предпросмотр для Файлов (Sushi)
+Comment=Quick preview of the files contents in the system's File Manager interface (Nautilus) by pressing the space bar.
+Comment[ru_RU]=Быстрый предпросмотр содержимого файлов в системном менеджере файлов (Nautilus) при нажатии клавиши пробел.
+X-Alterator-PackageList=workstation/sushi
+X-Alterator-Required=yes
+X-Alterator-Parent=workstation/10-office
+Categories=GNOME;

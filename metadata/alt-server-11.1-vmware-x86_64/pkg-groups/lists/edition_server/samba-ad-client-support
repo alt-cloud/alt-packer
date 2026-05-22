@@ -1,0 +1,11 @@
+adcli
+alterator-auth
+alterator-gpupdate
+alterator-roles-common
+dconf
+gpresult
+gpupdate
+packagekit
+task-auth-ad-sssd
+task-auth-ad-winbind
+xdg-user-dirs

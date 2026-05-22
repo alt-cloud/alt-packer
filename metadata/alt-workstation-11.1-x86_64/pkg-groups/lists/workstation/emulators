@@ -1,0 +1,11 @@
+wine
+wine-mono
+wine-gecko
+i586-wine
+wine-cpcsp_proxy
+i586-wine-cpcsp_proxy
+i586-xorg-dri-*
+i586-libnss-mdns
+i586-libnss-myhostname
+dosbox
+winehelper

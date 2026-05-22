@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=ALT Domain client infrastructure support
+X-Alterator-PackageList=edition_domain/alt-domain-ad-client-support
+X-Alterator-Required=no
+Name[ru_RU]=Поддержка клиентской инфраструктуры в Альт Домен

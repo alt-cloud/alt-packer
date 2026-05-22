@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Web-interface - Alterator (legacy)
+X-Alterator-PackageList=edition_domain/alterator-legacy-web
+X-Alterator-Required=no
+Name[ru_RU]=Web-интерфейс - Альтератор (legacy)
