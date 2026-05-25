@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Graphical subsystem support (GNOME)
+X-Alterator-PackageList=edition_server/alt-server-gnome-environment
+X-Alterator-Required=no
+Name[ru_RU]=Поддержка графической подсистемы (GNOME)

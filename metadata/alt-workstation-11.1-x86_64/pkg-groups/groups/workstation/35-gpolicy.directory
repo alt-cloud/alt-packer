@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Group policies
+Name[ru_RU]=Групповые политики
+X-Alterator-PackageList=workstation/gpolicy
+X-Alterator-Required=no
+Comment=Packages required for working with group policies
+Comment[ru_RU]=Пакеты необходимые для работы с групповыми политиками

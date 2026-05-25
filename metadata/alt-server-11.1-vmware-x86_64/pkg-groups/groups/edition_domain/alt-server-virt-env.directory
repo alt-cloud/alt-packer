@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Server support for virtual environments
+X-Alterator-PackageList=edition_domain/alt-server-virt-env
+X-Alterator-Required=no
+Name[ru_RU]=Серверная поддержка работы в виртуальных окружениях

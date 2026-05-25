@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Name=Samba AD - client infrastructure support
+X-Alterator-PackageList=edition_server/samba-ad-client-support
+X-Alterator-Required=no
+Name[ru_RU]=Samba AD - поддержка клиентской инфраструктуры

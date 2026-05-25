@@ -1,0 +1,19 @@
+#! /bin/sh
+set -euo pipefail
+
+echo "Resize tmpfs"
+
+echo "Current /etc/fstab:"
+cat /etc/fstab
+echo "----------------------"
+
+if grep -q 'tmpfs' /etc/fstab ; then 
+	sed -i 's|tmpfs	nosuid|tmpfs size=4g,nosuid|g' /etc/fstab
+	else echo "tmpfs /tmp tmpfs size=4g,nosuid 0 0" >> /etc/fstab 
+fi
+echo "Changed /etc/fstab:"
+cat /etc/fstab
+echo "----------------------"
+mount -o remount /tmp
+
+echo "Tmpfs is resized"
