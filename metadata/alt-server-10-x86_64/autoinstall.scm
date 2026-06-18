@@ -24,7 +24,7 @@
 ; group in SELinux-enabled distros because SELinux must be disabled to
 ; perform 'apt-get dist-upgrade' which you will eventually try to
 ; perform when VM is up.
-("/pkg-install" action "write" lists "centaurus/zero centaurus/systemd-networkd" auto #t)
+("/pkg-install" action "write" lists "centaurus/10-alterator centaurus/systemd-networkd" auto #t)
 ("/preinstall" action "write")
 
 ; It should be noted that 'virtio' block device driver will render
